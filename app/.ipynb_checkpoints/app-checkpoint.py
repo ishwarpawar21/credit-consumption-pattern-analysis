@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 from tensorflow.keras.models import load_model
+from sklearn.preprocessing import MinMaxScaler
+
 
 app = Flask(__name__)
 
@@ -51,13 +53,19 @@ def predict():
         prediction = gradient_boosting_model.predict(features)[-1]
         
     elif model_name == 'lstm':
-        # Directly use the amount values without scaling
         look_back = 1
         raw_data = input_data['Amount'].values.reshape(-1, 1)
-        testX = create_dataset(raw_data, look_back)
+        # Scale data to 0-1 range
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        scaled_data = scaler.fit_transform(raw_data)
+        # Create dataset for LSTM
+        testX = create_dataset(scaled_data, look_back)
         testX = np.reshape(testX, (testX.shape[0], 1, testX.shape[1]))
         lstm_pred = lstm_model.predict(testX)
-        prediction = lstm_pred[-1][0]  # Directly use the prediction without inverse scaling
+        # Inverse scaling to get the actual prediction
+        lstm_pred = scaler.inverse_transform(lstm_pred)
+        prediction = float(lstm_pred[-1][0])  # Convert to float
+        
         
     else:
         return jsonify({"error": "Invalid model name"}), 400

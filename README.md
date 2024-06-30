@@ -37,9 +37,9 @@ This project aims to analyze credit/debit card consumption patterns and predict 
 
 4. **Run the Jupyter Notebook:**
  
-     ```
+    
      Note: Ensure the Flask server is running and and all pre-requsite Jupyter Notebooks are run from /notbook step by step. 
-     ```
+
     - Step 1: Data profiling.
     ```sh
     jupyter notebook notebooks/step_1_data_profiling.ipynb
