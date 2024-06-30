@@ -52,6 +52,9 @@ This project aims to analyze credit/debit card consumption patterns and predict 
 3. **Train the model and make predictions:**
     - Use the provided scripts or notebooks to train different models and make predictions on future consumption patterns.
 
+4. **Deploy:**
+    - Use the provided scripts or notebooks to  pridict and predictions on next week consumption.   
+
 ## Dependencies
 
 The project requires the following Python packages, which are listed in `requirements.txt`:

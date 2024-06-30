@@ -3,4 +3,5 @@
 /data/train_data.csv
 /data/test_data.csv
 /.ipynb_checkpoints
-
+/train_model
+/data/credit_card_transactions_1.csv
