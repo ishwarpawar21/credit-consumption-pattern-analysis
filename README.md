@@ -39,9 +39,28 @@ This project aims to analyze credit/debit card consumption patterns and predict 
  
      ```
      Note: Ensure the Flask server is running and and all pre-requsite Jupyter Notebooks are run from /notbook step by step. 
-     Notebooks: /notebooks
-     Flastk Server: python app/app.py
      ```
+    - Step 1: Data profiling.
+    ```sh
+    jupyter notebook notebooks/step_1_data_profiling.ipynb
+    ```
+    - Step 2: Data sampling
+    ```sh
+    jupyter notebook notebooks/step_2_data_sampling.ipynb
+    ```
+    - Step 3: clean and transformation
+    ```sh
+    jupyter notebook notebooks/step_3_data_cleaning_transformation.ipynb
+    ```
+    - Step 4: Train, testing and save model 
+    ```sh
+    jupyter notebook notebooks/step_4_model_training.ipynb
+    ```
+    - Step 5: Deploy server using saved mdoel
+    ```sh
+    python app/app.py
+    ```
+    - Step 6: Access model using API. 
     ```sh
     jupyter notebook consumption-pattern-analysis.ipynb
     ```
